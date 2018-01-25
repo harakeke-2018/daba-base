@@ -7,6 +7,10 @@ module.exports = {
 }
 
 function getTaggedDabs() {
+
+}
+
+function getAllDabs() {
   return connection('dabs')
         .select()
 }

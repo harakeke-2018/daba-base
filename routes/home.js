@@ -45,7 +45,7 @@ router.get('/dababase', (req, res) => {
   db.getTaggedDabs()
     .then(generatedDabs => {
       console.log(generatedDabs)
-      res.render('dabs', {generatedDabs})
+      res.render('dababase', {generatedDabs})
     })
 })
 
