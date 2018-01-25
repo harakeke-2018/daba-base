@@ -1,10 +1,10 @@
 
 exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
-  return knex('dab_id').del()
+  return knex('dab_tags').del()
     .then(function () {
       // Inserts seed entries
-      return knex('dab_id').insert([
+      return knex('dab_tags').insert([
         {id: 1, dab_id: 1, tag_id: 2}, // Dab-asaur: non-human
         {id: 2, dab_id: 2, tag_id: 1}, // Tiger Hat Man: human
         {id: 3, dab_id: 2, tag_id: 2}, // Tiger Hat Man: inside
