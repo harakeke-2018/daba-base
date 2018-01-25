@@ -5,7 +5,9 @@
   </head>
   <body>
     <h1>Daba Base</h1>
+
     <h2>Pick a Dab</h2>
+    {{!-- tags to for selecting dabs --}}
     <div class="itemcontainer">
       <label>Human:
           <input type="checkbox" id=1 name="human">
@@ -23,18 +25,14 @@
           <input type="checkbox" id=5 name="group">
       </label>
     </div>
-
-    <div>
+{{!-- button to grab dabs based on selection --}}
+    <div class="itemcontainer">
       <button class="get-dab" onclick="location.href='/dabs';">Get Dab</button>
     </div>
-
+{{!-- button to see all dabs --}}
     <div class="itemcontainer">
-      <a href='/alldabs'><img src=panda>pandaimg</a>
+      <a href='/dababase'><img src=panda>pandaimg</a>
     </div>
-    <ul>
-    {{#each users}}
-      <li>{{name}} ({{email}})</li>
-    {{/each}}
-    </ul>
+
   </body>
 </html>
