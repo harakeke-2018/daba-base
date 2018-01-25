@@ -1,0 +1,31 @@
+    <h1>Add a Dab</h1>
+    <form action='/dab/:id' method="post"></form>
+    
+    {{!-- select tags --}}
+    <div class="itemcontainer">
+      <label>Human:
+          <input type="checkbox" id=1 name="human">
+      </label>
+      <label>Non-Human:
+          <input type="checkbox" id=2 name="non-human">
+      </label>
+      <label>Inside:
+          <input type="checkbox" id=3 name="inside">
+      </label>
+      <label>Outside:
+          <input type="checkbox" id=4 name="outside">
+      </label>
+      <label>Group:
+          <input type="checkbox" id=5 name="group">
+      </label>
+      <label>Dab URL:
+          <input type="text" name="source" value="Paste URL here">
+      </label>
+
+      <button class="dab-button" onlick="location.href='/dab/:id'">Add Dab</button>
+
+      </form>
+
+    
+
+    </div>

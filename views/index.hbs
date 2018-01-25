@@ -8,6 +8,7 @@
 
     <h2>Pick a Dab</h2>
     {{!-- tags to for selecting dabs --}}
+    <form action="/dabs" method="post">
     <div class="itemcontainer">
       <label>Human:
           <input type="checkbox" id=1 name="human">
@@ -25,10 +26,12 @@
           <input type="checkbox" id=5 name="group">
       </label>
     </div>
+    
 {{!-- button to grab dabs based on selection --}}
     <div class="itemcontainer">
-      <button class="get-dab" onclick="location.href='/dabs';">Get Dab</button>
+      <button class="dab-button" onclick="location.href='/dabs';">Get Dab</button>
     </div>
+    </form>
 {{!-- button to see all dabs --}}
     <div class="itemcontainer">
       <a href='/dababase'><img src=panda>pandaimg</a>
