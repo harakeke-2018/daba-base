@@ -14,5 +14,20 @@ router.get('/', (req, res) => {
     })
 })
 
-module.exports = router
+router.get('/dabs', (req, res) => {
+  db.getTaggedDabs()
+    .then(generatedDabs => {
+      console.log(generatedDabs)
+      res.render('dabs', {generatedDabs})
+    })
+})
 
+router.get('/dababase', (req, res) => {
+  db.getTaggedDabs()
+    .then(generatedDabs => {
+      console.log(generatedDabs)
+      res.render('dabs', {generatedDabs})
+    })
+})
+
+module.exports = router
