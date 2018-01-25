@@ -7,7 +7,7 @@ exports.seed = function (knex, Promise) {
       return knex('dabs').insert([
         {id: 1, name: 'Dab-asaur', source: 'https://media.giphy.com/media/l3zoKeX8bMG5sMP4s/giphy.gif'},
         {id: 2, name: 'Tiger Hat Man', source: 'https://media.giphy.com/media/3o7WTHY6qalYbQFCKI/giphy.gif'},
-        {id: 3, name: 'Armish Group Dabding', source: 'https://media.giphy.com/media/XmgbcmQvLEThS/giphy.gif'},
+        {id: 3, name: 'Armish Group Dabbing', source: 'https://media.giphy.com/media/XmgbcmQvLEThS/giphy.gif'},
         {id: 4, name: 'Bird Dab', source: 'https://media.giphy.com/media/11RgbBSgomKx6o/giphy.gif'},
         {id: 5, name: 'Turtle Dab', source: 'https://media.giphy.com/media/RkyTmMTOsMN20/giphy.gif'},
         {id: 6, name: 'Slip n Slide', source: 'https://media.giphy.com/media/3o7TKNh1j30yBdtTXi/giphy.gif'},
