@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EDA Phase 1 Express Boilerplate</title>
+    <title>Daba-Base</title>
   </head>
   <body>
+    <h1>Daba Base</h1>
+    <h2>Pick a Dab</h2>
+    <div class="itemcontainer">
+      <label>Human:
+          <input type="checkbox" id=1 name="human">
+      </label>
+      <label>Non-Human:
+          <input type="checkbox" id=2 name="non-human">
+      </label>
+      <label>Inside:
+          <input type="checkbox" id=3 name="inside">
+      </label>
+      <label>Outside:
+          <input type="checkbox" id=4 name="outside">
+      </label>
+      <label>Group:
+          <input type="checkbox" id=5 name="group">
+      </label>
+    </div>
+
+    <div>
+      <button class="get-dab" onclick="location.href='/dabs';">Get Dab</button>
+    </div>
+
+    <div class="itemcontainer">
+      <a href='/alldabs'><img src=panda>pandaimg</a>
+    </div>
     <ul>
     {{#each users}}
       <li>{{name}} ({{email}})</li>
