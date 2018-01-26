@@ -8,30 +8,25 @@ module.exports = {
 }
 
 function getTaggedDabs (dabs) {
-  console.log(dabs)
   //
   // Join function
   //
   let keyArray = Object.keys(dabs)
-  console.log(keyArray)
+  keyArray = keyArray.map(key => Number(key))
   let dbArray = []
   let finalObjects = []
-  
-  connection('tags')
+
+  return connection('tags')
     .join('dab_tags', 'tags.id', 'dab_tags.tag_id')
+    .join('dabs', 'dabs.id', 'dab_tags.dab_id')
+    .select('dabs.name', 'tags.tag', 'dabs.id as dabId', 'dabs.source')
+    .whereIn('tags.id', keyArray)
     .then(jointDB => {
-      dbArray.push(jointDB)
-    })
-    .then(() => {
-      for (let i = 0; i < dbArray[0].length; i++) {
-        console.log("Working on:", dbArray[0][i])
-        for (let j = 0; j < Object.keys(dabs).length; j++) {
-          if (dbArray[0][i].tag_id == keyArray[j]) {
-            finalObjects.push(dbArray[0][i])
-          }
-        }
-      }
-      console.log(finalObjects)
+      jointDB.forEach(element => {
+        const existing = finalObjects.find(o => o.dabId === element.dabId)
+        if (!existing) finalObjects.push(element)
+      })
+      return finalObjects
     })
 }
 

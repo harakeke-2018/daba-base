@@ -21,8 +21,10 @@ router.get('/', (req, res) => {
 // })
 
 router.post('/', (req, res) => {
-  console.log(db.getTaggedDabs(req.body))
-  res.render('index')
+  db.getTaggedDabs(req.body)
+    .then(objFinal => {
+      res.render('dabs', {generatedDabs: objFinal})
+    })
 })
 
 //
@@ -32,7 +34,6 @@ router.post('/', (req, res) => {
 router.get('/dabs', (req, res) => {
   db.getAllDabs()
     .then(generatedDabs => {
-      console.log(generatedDabs)
       res.render('dabs', {generatedDabs})
     })
 })
