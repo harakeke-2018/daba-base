@@ -1,7 +1,27 @@
 body {
+background: url('/background-img.jpg')
+no-repeat center center fixed;
+background-size: cover;
+font-family: 'Arial';
+font-size: 2em;
 
 }
 
 .container{
-    
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
 }
+
+input[type=checkbox] + img {
+    background: none;
+    padding: 10px;
+}
+
+input[type=checkbox]:checked + img {
+    background: rgb(47, 86, 241);
+    padding: 10px;
+    border-radius: 50%;
+} 
