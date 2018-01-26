@@ -28,4 +28,12 @@ router.get('/dababase', (req, res) => {
     })
 })
 
+rounter.get('/dab-profile', (req, res) => {
+  db.getProfile()
+    .then( () => {
+      res.render('dab-profile')
+
+    })
+})
+
 module.exports = router
