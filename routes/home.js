@@ -8,9 +8,9 @@ const router = express.Router()
 
 router.use(bodyParser.urlencoded({ extended: true }))
 
-// 
-// Home Functions 
-// 
+//
+// Home Functions
+//
 
 router.get('/', (req, res) => {
   res.render('index')
@@ -20,21 +20,17 @@ router.get('/', (req, res) => {
 //     })
 // })
 
-router.post ('/', (req, res) => {
-  console.log(req.body)
-  db.getTaggedDabs()
-    .then(generatedDabs => {
-      console.log(generatedDabs)
-      res.render('dabs', {generatedDabs})
-    })
+router.post('/', (req, res) => {
+  console.log(db.getTaggedDabs(req.body))
+  res.render('index')
 })
 
-// 
-// End of Home Functions 
-// 
+//
+// End of Home Functions
+//
 
 router.get('/dabs', (req, res) => {
-  db.getTaggedDabs()
+  db.getAllDabs()
     .then(generatedDabs => {
       console.log(generatedDabs)
       res.render('dabs', {generatedDabs})
@@ -42,7 +38,7 @@ router.get('/dabs', (req, res) => {
 })
 
 router.get('/dababase', (req, res) => {
-  db.getTaggedDabs()
+  db.getAllDabs()
     .then(generatedDabs => {
       console.log(generatedDabs)
       res.render('dababase', {generatedDabs})
