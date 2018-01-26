@@ -13,6 +13,7 @@ server.use(express.static('public'))
 server.engine('hbs', hbs({extname: 'hbs'}))
 server.set('view engine', 'hbs')
 server.use(bodyParser.urlencoded({ extended: true }))
+server.use(express.static('public'))
 
 // Routes
 
