@@ -1,31 +1,38 @@
-    <h1>Add a Dab</h1>
-    <form action='/dab/:id' method="post"></form>
+<h1>Add a Dab</h1>
+<form action='/addDab' method="post">
     
     {{!-- select tags --}}
+    
     <div class="itemcontainer">
+      <label>Dab Name:
+          <input type="text" name="name" placeholder="Enter your Dab Name">
+      </label>
       <label>Human:
-          <input type="checkbox" id=1 name="human">
+          <input type="checkbox" value=1 name="tag">
       </label>
       <label>Non-Human:
-          <input type="checkbox" id=2 name="non-human">
+          <input type="checkbox" value=2 name="tag">
       </label>
       <label>Inside:
-          <input type="checkbox" id=3 name="inside">
+          <input type="checkbox" value=3 name="tag">
       </label>
       <label>Outside:
-          <input type="checkbox" id=4 name="outside">
+          <input type="checkbox" value=4 name="tag">
       </label>
       <label>Group:
-          <input type="checkbox" id=5 name="group">
+          <input type="checkbox" value=5 name="tag">
       </label>
       <label>Dab URL:
-          <input type="text" name="source" value="Paste URL here">
+          <input type="text" name="source" placeholder="Paste URL here">
       </label>
+     </div>
 
-      <button class="dab-button" onlick="location.href='/dab/:id'">Add Dab</button>
+     <div>
+      <button class="dab-button" onlick="location.href='/addDab';">Add Dab</button>
+    </div>
 
-      </form>
+</form>
 
     
 
-    </div>
+   
