@@ -1,5 +1,5 @@
 body {
-background: url('/background-img.jpg') no-repeat center center fixed;
+background-color: skyblue;
 background-size: cover;
 font-family: 'Arial';
 font-size: 2em;
@@ -24,3 +24,10 @@ input[type=checkbox]:checked + img {
     padding: 10px;
     border-radius: 50%;
 } 
+
+.img-circle{
+  border-radius: 50%;
+  object-fit: cover;
+  width: 230px;
+  height: 230px;
+}
