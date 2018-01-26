@@ -4,7 +4,8 @@ const connection = require('knex')(config)
 
 module.exports = {
   getTaggedDabs,
-  newDab
+  newDab,
+  getProfile
 }
 
 function getTaggedDabs() {
@@ -99,3 +100,8 @@ function newDab(addDab) {
       }
   
     
+function getProfile(id) {
+  return connection('dabs')
+        .where('id', id)
+        .select()
+}
