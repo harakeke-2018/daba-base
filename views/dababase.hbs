@@ -1,10 +1,11 @@
-<img src="/background-img.jpg" alt="">
+
 
 <h3>Dabs!</h3>
   <button class = 'home' onclick="location.href='/';" >
       Home
     </button>
 {{#each generatedDabs}}
-<img src="{{source}}" height="150px"></img>
+<a href="/dab-profile/{{id}}">
+<img src="{{source}}" height="150px"></img></a>
 <h3>{{name}}</h3>
 {{/each}}
