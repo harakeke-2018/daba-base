@@ -4,42 +4,66 @@ const connection = require('knex')(config)
 
 module.exports = {
   getTaggedDabs,
+  getAllDabs,
   newDab,
   getProfile
 }
 
-function getTaggedDabs() {
-  return connection('dabs')
-        .select()
+function getTaggedDabs (dabs) {
+  //
+  // Join function
+  //
+  let keyArray = Object.keys(dabs)
+  keyArray = keyArray.map(key => Number(key))
+  let dbArray = []
+  let finalObjects = []
+
+  return connection('tags')
+    .join('dab_tags', 'tags.id', 'dab_tags.tag_id')
+    .join('dabs', 'dabs.id', 'dab_tags.dab_id')
+    .select('dabs.name', 'tags.tag', 'dabs.id as dabId', 'dabs.source')
+    .whereIn('tags.id', keyArray)
+    .then(jointDB => {
+      jointDB.forEach(element => {
+        const existing = finalObjects.find(o => o.dabId === element.dabId)
+        if (!existing) finalObjects.push(element)
+      })
+      return finalObjects
+    })
 }
 
-function newDab(addDab) {
+function getAllDabs () {
+  return connection('dabs')
+    .select()
+}
+
+function newDab (addDab) {
   const addName = addDab.name
   const source = addDab.source
   const listKeys = Object.keys(addDab)
-  
-  return connection('dabs') 
-  .insert({
-    name: addName,
-    source: source 
-  })
-  .then((id) => {   
-    const dabId = id[0]
-    const dabTags = []
-    const tags = addDab.tag
 
-    for (let i = 0; i < tags.length; i++) {
-    let obj = {
-            dab_id: dabId,
-            tag_id: tags[i]
-    }
-          dabTags.push(obj)
-    }
-    console.log(dabTags)
-    return connection('dab_tags')
-      .insert(dabTags)
-  
-    
+  return connection('dabs')
+    .insert({
+      name: addName,
+      source: source
+    })
+    .then((id) => {
+      const dabId = id[0]
+      const dabTags = []
+      const tags = addDab.tag
+
+      for (let i = 0; i < tags.length; i++) {
+        let obj = {
+          dab_id: dabId,
+          tag_id: tags[i]
+        }
+        dabTags.push(obj)
+      }
+      console.log(dabTags)
+      return connection('dab_tags')
+        .insert(dabTags)
+
+
 
     // const dabId = id[0]
     // for (let i = 0; i < listKeys.length; i++) {
@@ -56,7 +80,7 @@ function newDab(addDab) {
 
     // )
     // }
-    
+
     // .where('tags', 'id', )
     // for(let i = 0; i < key.length; i++) {
     //   if (key[i] === "human") {
@@ -91,17 +115,17 @@ function newDab(addDab) {
     //       connection('dab_tags')
     //       .insert({
     //         dab_id: dabId,
-    //         tag_id: 5 
+    //         tag_id: 5
     //     })
     //   }
     //       }
-        })
-        // .catch(err => showError(err, res))
-      }
-  
-    
-function getProfile(id) {
+    })
+  // .catch(err => showError(err, res))
+}
+
+
+function getProfile (id) {
   return connection('dabs')
-        .where('id', id)
-        .select()
+    .where('id', id)
+    .select()
 }
