@@ -10,3 +10,9 @@ function getTaggedDabs() {
   return connection('dabs')
         .select()
 }
+
+function getProfile(id) {
+  return connection('dabs')
+        .where('id', id)
+        .select()
+}

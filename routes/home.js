@@ -28,11 +28,10 @@ router.get('/dababase', (req, res) => {
     })
 })
 
-rounter.get('/dab-profile', (req, res) => {
-  db.getProfile()
-    .then( () => {
-      res.render('dab-profile')
-
+router.get('/dab-profile/:id', (req, res) => {
+  db.getProfile(req.params.id)
+    .then((dabProfile) => {
+      res.render('dab-profile', {dabs: dabProfile})
     })
 })
 
