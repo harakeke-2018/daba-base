@@ -46,4 +46,12 @@ router.get('/dababase', (req, res) => {
     })
 })
 
+router.get('/dab-profile/:id', (req, res) => {
+  db.getProfile(req.params.id)
+    .then((dabProfile) => {
+      console.log(dabProfile)
+      res.render('dab-profile', {dabs: dabProfile})
+    })
+})
+
 module.exports = router

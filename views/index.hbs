@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Daba-Base</title>
-  </head>
-  <body>
-    <h1>Daba Base</h1>
 
+      
+    <h1>Daba Base</h1>
+    <div class="container">
+    <div>
+    <p>Welcome to DabaBases - where you can choose your favourite Dab!</p>
+    </div>
     <h2>Pick a Dab</h2>
     {{!-- tags to for selecting dabs --}}
     <form action="/" method="post">
@@ -26,16 +25,13 @@
           <input type="checkbox" id=5 name="5">
       </label>
     </div>
-
+    
 {{!-- button to grab dabs based on selection --}}
     <div class="itemcontainer">
-      <button class="get-dab" onclick="location.href='/dabs';">Get Dab</button>
+      <button class="dab-button" onclick="location.href='/dabs';">Get Dab</button>
     </div>
     </form>
 {{!-- button to see all dabs --}}
     <div class="itemcontainer">
       <a href='/dababase'><img src=panda>pandaimg</a>
     </div>
-
-  </body>
-</html>

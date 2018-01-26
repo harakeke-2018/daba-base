@@ -1,0 +1,38 @@
+<h1>Add a Dab</h1>
+<form action='/addDab' method="post">
+    
+    {{!-- select tags --}}
+    
+    <div class="itemcontainer">
+      <label>Dab Name:
+          <input type="text" name="name" placeholder="Enter your Dab Name">
+      </label>
+      <label>Human:
+          <input type="checkbox" value=1 name="tag">
+      </label>
+      <label>Non-Human:
+          <input type="checkbox" value=2 name="tag">
+      </label>
+      <label>Inside:
+          <input type="checkbox" value=3 name="tag">
+      </label>
+      <label>Outside:
+          <input type="checkbox" value=4 name="tag">
+      </label>
+      <label>Group:
+          <input type="checkbox" value=5 name="tag">
+      </label>
+      <label>Dab URL:
+          <input type="text" name="source" placeholder="Paste URL here">
+      </label>
+     </div>
+
+     <div>
+      <button class="dab-button" onlick="location.href='/addDab';">Add Dab</button>
+    </div>
+
+</form>
+
+    
+
+   
